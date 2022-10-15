@@ -28,5 +28,6 @@ namespace Backend.Services
            await _userCollection.ReplaceOneAsync(x => x.Id == id, user);
         public async Task RemoveAsync(string id) =>
             await _userCollection.DeleteOneAsync(x => x.Id == id);
+        
     }
 }

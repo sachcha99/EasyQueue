@@ -8,6 +8,7 @@ builder.Services.Configure<EasyQueueDBSettings>
     (builder.Configuration.GetSection("DevNetStoreDatabase"));
 
 builder.Services.AddSingleton<UserServices>();
+builder.Services.AddSingleton<ShedServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
