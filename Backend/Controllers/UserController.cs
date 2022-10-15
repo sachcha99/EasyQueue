@@ -27,5 +27,26 @@ namespace Backend.Controllers
 
             return user;
         }
+
+        [HttpGet("{id}")]
+        public async Task<User> GetUser(string id)
+            => await _userServices.GetAsync(id);
+        
+        [HttpPut("{id}")]
+        public async Task<User> PutUser(string id, User user)
+        {
+            await _userServices.UpdateAsync(id, user);
+
+            return user;
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            await _userServices.RemoveAsync(id);
+
+            return NoContent();
+        }
+     
     }
 }
