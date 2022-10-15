@@ -874,11 +874,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Programs\\C#\\EAD\\Backend\\Backend.csproj",
+      "projectUniqueName": "F:\\Programs\\C#\\EasyQueue\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "F:\\Programs\\C#\\EAD\\Backend\\Backend.csproj",
+      "projectPath": "F:\\Programs\\C#\\EasyQueue\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "F:\\Programs\\C#\\EAD\\Backend\\obj\\",
+      "outputPath": "F:\\Programs\\C#\\EasyQueue\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
