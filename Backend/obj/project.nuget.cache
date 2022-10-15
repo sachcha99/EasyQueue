@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LyvqBYbMlL1KdEufN532imVD719edkPd+WCI1MgurTdSrYiFH87Nyaohi5Ew7YplIPZD/iUdFHxIV4ZGSD0Y2Q==",
+  "dgSpecHash": "MRUNXh+0KiksWevddpzM7vN663QtzzuOqDo/6QxETFUG8fjIJc5le3mTBifVch6w1Nyom3wMtvvmsUD8u2SQtA==",
   "success": true,
-  "projectFilePath": "F:\\Programs\\C#\\EAD\\Backend\\Backend.csproj",
+  "projectFilePath": "F:\\Programs\\C#\\EasyQueue\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
