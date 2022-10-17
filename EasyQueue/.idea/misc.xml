@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
