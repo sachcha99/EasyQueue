@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.android.volley.RequestQueue;
+import com.example.easyqueue.ShedController.EditShedDetails;
 import com.example.easyqueue.ShedController.ShedListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -60,7 +61,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
 
     private void GoToShedList() {
 
-        startActivity(new Intent(Home.this, ShedListView.class));
+        startActivity(new Intent(Home.this, EditShedDetails.class));
 //        getdata();
 
 
