@@ -16,9 +16,14 @@ namespace Backend.Controllers
             _shedServices = shedServices;
         }
 
+        
         [HttpGet]
-        public async Task<List<Shed>> GetShed()
-            => await _shedServices.GetAsync();
+        public async Task<List<Shed>> GetShed(){
+            var rr = await _shedServices.GetAsync();
+            Console.WriteLine(rr[0].Id);
+            return rr;
+        }
+            // => await _shedServices.GetAsync();
 
         [HttpPost]
         public async Task<Shed> PostShed(Shed shed)

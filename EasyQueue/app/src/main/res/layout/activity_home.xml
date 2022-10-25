@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_authentication"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:scaleType="centerCrop"
+    tools:context=".Home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:foregroundGravity="center_vertical|center"
+            android:text="Hey Madhura!"
+            android:textAlignment="viewStart"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_Logout"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:clickable="true"
+            app:backgroundTint="#00568CE8"
+            app:elevation="0dp"
+            app:srcCompat="@drawable/ic_baseline_login_24"
+            app:tint="@android:color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Things  you can do" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_ShedList"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_group_756"
+            android:foreground="@drawable/ic_group_756"
+            android:text="View Shed List"
+            app:cornerRadius="8dp"
+            app:iconPadding="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
