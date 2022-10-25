@@ -1,4 +1,4 @@
-package com.example.easyqueue;
+package com.example.easyqueue.DBHelper;
 import android.content.ContentValues;
 import  android.content.Context;
 import android.database.Cursor;

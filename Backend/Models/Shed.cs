@@ -16,7 +16,7 @@ namespace Backend.Models
         public string Address { get; set; } = null;
 
         [BsonElement("Status")]
-        public string Mobile { get; set; } = null;
+        public string Status { get; set; } = null;
 
         [BsonElement("QueueStartTime")]
         public string QueueStartTime { get; set; } = null;

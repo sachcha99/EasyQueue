@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/back_icon.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/btnshape.xml" value="0.1825" />
         <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1825" />
-        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/drawable/shape.xml" value="0.1825" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_home.xml" value="0.4" />
         <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_card_view.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_home.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_listview.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/activity_shed_view_card.xml" value="0.25" />
+        <entry key="..\:/Programs/C#/EasyQueue/EasyQueue/app/src/main/res/layout/shed_view_card.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/ACER/AndroidStudioProjects/EasyQueue/EasyQueue/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
