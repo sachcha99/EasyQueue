@@ -1,15 +1,16 @@
 package com.example.easyqueue.ShedController;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,19 +42,40 @@ public class ShedListAdapter extends ArrayAdapter<Shed> {
 
         View view = inflater.inflate(resource,null);
 
-        final TextView roomNo = view.findViewById(R.id.lb_roomNo4);
-        final TextView rType = view.findViewById(R.id.lb_Rtype);
-        TextView price = view.findViewById(R.id.lb_price);
-        TextView f1 = view.findViewById(R.id.lb_f1);
-        TextView f2 = view.findViewById(R.id.lb_f2);
-        TextView f3 = view.findViewById(R.id.lb_f3);
-        TextView f4 = view.findViewById(R.id.lb_f4);
-        ImageView image = view.findViewById(R.id.imageView2);
+        LinearLayout petrolView = view.findViewById(R.id.petrolView);
+        LinearLayout dieselView = view.findViewById(R.id.dieselView);
+        final TextView shedName = view.findViewById(R.id.txt_shedName);
+        final TextView address = view.findViewById(R.id.txt_shedAddress);
+        ImageView image = view.findViewById(R.id.shedImage);
+        TextView shedOpen = view.findViewById(R.id.txt_open);
 
 
-        Button btnBook = view.findViewById(R.id.btn_booking);
+        TextView pAvailable = view.findViewById(R.id.txt_statusPet);
+        TextView pQueueTime = view.findViewById(R.id.txt_queueStart);
+        TextView pCount = view.findViewById(R.id.txt_noVehicle);
+
+        TextView dAvailable = view.findViewById(R.id.txt_statusDes);
+        TextView dQueueTime = view.findViewById(R.id.txt_queueStartDes);
+        TextView dCount = view.findViewById(R.id.txt_noVehicleDes);
 
 
+
+        Button joinDiesel = view.findViewById(R.id.btn_joinDes);
+        Button joinPetrol = view.findViewById(R.id.btn_JoinPet);
+
+        joinPetrol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showConfirmBox(view,inflater, "Diesel");
+            }
+        });
+
+        joinDiesel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showConfirmBox(view,inflater,"Petrol");
+            }
+        });
 //        btnBook.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -75,19 +97,83 @@ public class ShedListAdapter extends ArrayAdapter<Shed> {
 //            }
 //        });
 
-        Shed rl = shedList.get(position);
-
-        roomNo.setText(String.valueOf(rl.getId()));
-        rType.setText(rl.getName());
-        price.setText(rl.getAddress());
-        f1.setText(rl.getStatus());
-        f2.setText(rl.getQueueStartTime());
-        f3.setText(rl.getQueueEndTime());
-        f4.setText(rl.getName());
-        image.setImageDrawable(mCtx.getResources().getDrawable(rl.getImage()));
 
 
+        Shed shedObj = shedList.get(position);
+
+        shedName.setText(String.valueOf(shedObj.getName()));
+        address.setText(shedObj.getAddress());
+        shedOpen.setText(shedObj.getStatus());
+
+        pAvailable.setText("Petrol "+shedObj.getStatus());
+        pQueueTime.setText(shedObj.getQueueStartTime());
+        pCount.setText(shedObj.getQueueEndTime());
+
+        dAvailable.setText("Diesel "+"Not Available");
+        dQueueTime.setText("15.55");
+        dCount.setText("15");
+
+        image.setImageDrawable(mCtx.getResources().getDrawable(shedObj.getImage()));
+
+        if(shedObj.getName()=="name1"){
+            if(shedObj.getStatus()=="petrol"){
+                dieselView.setVisibility(View.GONE);
+                joinPetrol.setText("Exit From Queue");
+
+            }else{
+                petrolView.setVisibility(View.GONE);
+                joinDiesel.setText("Exit From Queue");
+            }
+        }
 
         return view;
     }
+
+    private void showConfirmBox(View view, LayoutInflater inflater, String type) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(view.getRootView().getContext());
+        final View dialogView = inflater.inflate(R.layout.activity_queueinbox, null);
+        dialogBuilder.setView(dialogView);
+
+
+        final Button buttonConfirm = (Button) dialogView.findViewById(R.id.btn_confirm);
+        final Button buttonCancel = (Button) dialogView.findViewById(R.id.btn_cancel);
+
+        // dialogBuilder.setTitle(bookingId);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+
+
+        buttonConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(type=="Petrol"){
+                    System.out.println("P");
+                }else{
+                    System.out.println("D");
+                }
+                b.dismiss();
+//                Intent intent = new Intent(Booking_DetailsList.this,EditBookingDetails.class);
+//                intent.putExtra("Bookingid",bookingId);
+//                intent.putExtra("Roomno",roomNo);
+//                intent.putExtra("Adultno",adultNo);
+//                intent.putExtra("Childno",childNo);
+//                intent.putExtra("Checkin",checkIn);
+//                intent.putExtra("Checkout",checkOut);
+//                startActivity(intent);
+
+
+            }
+        });
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                b.dismiss();
+            }
+        });
+    }
+
 }

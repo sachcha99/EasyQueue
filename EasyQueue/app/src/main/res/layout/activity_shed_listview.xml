@@ -10,15 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:foregroundGravity="center"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="78dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_marginBottom="2dp"
+            android:foregroundGravity="clip_horizontal"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingBottom="2dp"
+            android:clickable="false">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton"
@@ -26,32 +32,42 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:src="@drawable/ic_baseline_arrow_back_ios_24"
-                app:backgroundTint="#00FFFFFF"
-                app:elevation="0dp"
+                app:backgroundTint="#ffffff"
+                app:borderWidth="0dp"
+                app:elevation="1dp"
+                app:hoveredFocusedTranslationZ="0dp"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="165dp"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="10dp"
                 android:text="Shed List"
                 android:textAlignment="gravity"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <ListView
             android:id="@+id/shed_listview"
             android:layout_width="match_parent"
-            android:layout_height="572dp" />
+            android:layout_height="611dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:descendantFocusability="blocksDescendants"
+            />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="236dp"
-            android:layout_height="73dp"
-            android:text="Add" />
+            android:layout_height="49dp"
+            android:background="@drawable/custom_shed_btn"
+            android:text=" Add New Shed"
+            android:textColor="#DDDDDD" />
 
     </LinearLayout>
 
