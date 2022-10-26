@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">EasyQueue</string>
+        <string-array name="role">
+            <item>User</item>
+            <item>Owner</item>
+        </string-array>
+
 </resources>

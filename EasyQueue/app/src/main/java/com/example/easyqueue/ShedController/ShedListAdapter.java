@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,60 +41,43 @@ public class ShedListAdapter extends ArrayAdapter<Shed> {
 
         View view = inflater.inflate(resource,null);
 
-        LinearLayout petrolView = view.findViewById(R.id.petrolView);
-        LinearLayout dieselView = view.findViewById(R.id.dieselView);
+
         final TextView shedName = view.findViewById(R.id.txt_shedName);
         final TextView address = view.findViewById(R.id.txt_shedAddress);
-        ImageView image = view.findViewById(R.id.shedImage);
-        TextView shedOpen = view.findViewById(R.id.txt_open);
+        TextView shedOpen = view.findViewById(R.id.txt_shedStatus);
+        TextView petrolStatus = view.findViewById(R.id.txt_petrolStatus);
+        TextView dieselStatus = view.findViewById(R.id.txt_dieselStatus);
+        TextView greenDot = view.findViewById(R.id.txt_statusDotGreen);
+        TextView redDot = view.findViewById(R.id.txt_statusDotRed);
 
 
-        TextView pAvailable = view.findViewById(R.id.txt_statusPet);
-        TextView pQueueTime = view.findViewById(R.id.txt_queueStart);
-        TextView pCount = view.findViewById(R.id.txt_noVehicle);
+//        TextView pAvailable = view.findViewById(R.id.txt_statusPet);
+//        TextView pQueueTime = view.findViewById(R.id.txt_queueStart);
+//        TextView pCount = view.findViewById(R.id.txt_noVehicle);
+//
+//        TextView dAvailable = view.findViewById(R.id.txt_statusDes);
+//        TextView dQueueTime = view.findViewById(R.id.txt_queueStartDes);
+//        TextView dCount = view.findViewById(R.id.txt_noVehicleDes);
 
-        TextView dAvailable = view.findViewById(R.id.txt_statusDes);
-        TextView dQueueTime = view.findViewById(R.id.txt_queueStartDes);
-        TextView dCount = view.findViewById(R.id.txt_noVehicleDes);
+//
+//
+//        Button joinDiesel = view.findViewById(R.id.btn_joinDes);
+//        Button joinPetrol = view.findViewById(R.id.btn_JoinPet);
 
-
-
-        Button joinDiesel = view.findViewById(R.id.btn_joinDes);
-        Button joinPetrol = view.findViewById(R.id.btn_JoinPet);
-
-        joinPetrol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showConfirmBox(view,inflater, "Diesel");
-            }
-        });
-
-        joinDiesel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showConfirmBox(view,inflater,"Petrol");
-            }
-        });
-//        btnBook.setOnClickListener(new View.OnClickListener() {
+//        joinPetrol.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//
-////                Room r2 = roomList.get(position);
-////                String UID = String.valueOf(r2.getUid());
-////
-////
-////
-////                Intent intent = new Intent(mCtx, AddBookingDetails.class);
-////                intent.putExtra("roomNo",roomNo.getText().toString());
-////                intent.putExtra("RType",rType.getText().toString());
-////                intent.putExtra("ID",UID);
-////
-////                // Toast.makeText(, "", Toast.LENGTH_SHORT).show();
-////
-////                mCtx.startActivity(intent);
-//
+//                showConfirmBox(view,inflater, "Diesel");
 //            }
 //        });
+//
+//        joinDiesel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showConfirmBox(view,inflater,"Petrol");
+//            }
+//        });
+
 
 
 
@@ -104,27 +86,34 @@ public class ShedListAdapter extends ArrayAdapter<Shed> {
         shedName.setText(String.valueOf(shedObj.getName()));
         address.setText(shedObj.getAddress());
         shedOpen.setText(shedObj.getStatus());
+        petrolStatus.setText(shedObj.getPetrolStatus());
+        dieselStatus.setText(shedObj.getDieselStatus());
 
-        pAvailable.setText("Petrol "+shedObj.getStatus());
-        pQueueTime.setText(shedObj.getQueueStartTime());
-        pCount.setText(shedObj.getQueueEndTime());
-
-        dAvailable.setText("Diesel "+"Not Available");
-        dQueueTime.setText("15.55");
-        dCount.setText("15");
-
-        image.setImageDrawable(mCtx.getResources().getDrawable(shedObj.getImage()));
-
-        if(shedObj.getName()=="name1"){
-            if(shedObj.getStatus()=="petrol"){
-                dieselView.setVisibility(View.GONE);
-                joinPetrol.setText("Exit From Queue");
-
-            }else{
-                petrolView.setVisibility(View.GONE);
-                joinDiesel.setText("Exit From Queue");
-            }
+        if(shedObj.getStatus().equals("NotAvailable")){
+            greenDot.setVisibility(View.GONE);
+            redDot.setVisibility(View.VISIBLE);
         }
+
+//        pAvailable.setText("Petrol "+shedObj.getStatus());
+//        pQueueTime.setText(shedObj.getQueueStartTime());
+//        pCount.setText(shedObj.getQueueEndTime());
+//
+//        dAvailable.setText("Diesel "+"Not Available");
+//        dQueueTime.setText("15.55");
+//        dCount.setText("15");
+//
+//        image.setImageDrawable(mCtx.getResources().getDrawable(shedObj.getImage()));
+//
+//        if(shedObj.getName()=="name1"){
+//            if(shedObj.getStatus()=="petrol"){
+//                dieselView.setVisibility(View.GONE);
+//                joinPetrol.setText("Exit From Queue");
+//
+//            }else{
+//                petrolView.setVisibility(View.GONE);
+//                joinDiesel.setText("Exit From Queue");
+//            }
+//        }
 
         return view;
     }

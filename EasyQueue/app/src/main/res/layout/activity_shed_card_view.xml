@@ -1,213 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".ShedController.ShedCardView">-->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:layout_marginTop="20dp"
-android:layout_marginBottom="10dp">
-
-<View
-    android:id="@+id/view6"
-    android:layout_width="390dp"
-    android:layout_height="431dp"
-    android:layout_centerHorizontal="true"
-    android:layout_marginLeft="3dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="3dp"
-    android:layout_marginBottom="30dp" />
-
-<ImageView
-    android:id="@+id/imageView2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="226dp"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="75dp"
-    android:layout_marginEnd="0dp"
-    android:layout_marginRight="0dp" />
-
-<TextView
-    android:id="@+id/lb_f3"
-    android:layout_width="135dp"
     android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_centerVertical="true"
-    android:layout_marginStart="23dp"
-    android:layout_marginLeft="23dp"
-    android:layout_marginTop="389dp"
-    android:text="TextView" />
+    android:padding="4dp"
+    tools:context=".ShedController.ShedViewCard">
 
-<TextView
-    android:id="@+id/lb_Rtype"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginStart="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="32dp"
-    android:text="Budget Room"
-    android:textSize="22sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.056"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.091" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape2"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:text="View Shed List"
+        app:cornerRadius="8dp"
+        app:iconPadding="0dp">
 
-<TextView
-    android:id="@+id/lb_roomNo4"
-    android:layout_width="28dp"
-    android:layout_height="26dp"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginTop="55dp"
-    android:layout_marginEnd="3dp"
-    android:layout_marginRight="3dp"
-    android:text="01"
-    android:textSize="14sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.509"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.101" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-<TextView
-    android:id="@+id/textView26"
-    android:layout_width="176dp"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_centerVertical="true"
-    android:layout_marginStart="186dp"
-    android:layout_marginLeft="186dp"
-    android:layout_marginTop="340dp"
-    android:text="Free WiFi/Free parking/Restaurant/Airport shuttle" />
 
-<TextView
-    android:id="@+id/lb_f1"
-    android:layout_width="135dp"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_marginStart="23dp"
-    android:layout_marginLeft="23dp"
-    android:layout_marginTop="339dp"
-    android:text="TextView" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:foregroundGravity="center_vertical|clip_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-<TextView
-    android:id="@+id/lb_f4"
-    android:layout_width="135dp"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_centerVertical="true"
-    android:layout_marginStart="23dp"
-    android:layout_marginLeft="23dp"
-    android:layout_marginTop="412dp"
-    android:text="TextView" />
+                <TextView
+                    android:id="@+id/txt_shedName"
+                    android:layout_width="197dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/cabin"
+                    android:text="Pinidiya Shed"
+                    android:layout_weight="1"
+                    android:gravity="center|start"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-<TextView
-    android:id="@+id/lb_price"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginTop="273dp"
-    android:layout_marginEnd="4dp"
-    android:layout_marginRight="4dp"
-    android:background="#E9F3070F"
-    android:padding="2dp"
-    android:text="Per Day :  LKR 2500.00"
-    android:textColor="#EDFFFFFF"
-    android:textSize="18sp"
-    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt_shedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left|center_vertical"
+                    android:text="Available "
+                    android:layout_alignParentRight="true"
+                    android:textSize="16sp" />
 
-<TextView
-    android:id="@+id/lb_f2"
-    android:layout_width="135dp"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_centerVertical="true"
-    android:layout_marginStart="23dp"
-    android:layout_marginLeft="23dp"
-    android:layout_marginTop="363dp"
-    android:text="TextView" />
+                <TextView
+                    android:id="@+id/txt_statusDotGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_baseline_bullet"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="3dp"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/txt_statusDotRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_baseline_bulletred"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="3dp"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+            </LinearLayout>
 
-<Button
-    android:id="@+id/btn_booking"
-    android:layout_width="204dp"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginStart="186dp"
-    android:layout_marginLeft="186dp"
-    android:layout_marginTop="389dp"
-    android:layout_marginEnd="3dp"
-    android:layout_marginRight="3dp"
-    android:background="#40c76d"
-    android:text="GO TO BOOKING >"
-    android:textAllCaps="false"
-    android:textColor="#d9d9d9"
-    android:textSize="16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-<TextView
-    android:id="@+id/textView36"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:layout_centerInParent="true"
-    android:layout_marginStart="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="309dp"
-    android:gravity="center"
-    android:text="  No credit card needed to book."
-    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt_shedAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Matara Hakmana RD."
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-<TextView
-    android:id="@+id/textView17"
-    android:layout_width="63dp"
-    android:layout_height="27dp"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_marginTop="54dp"
-    android:layout_marginEnd="32dp"
-    android:layout_marginRight="32dp"
-    android:text="Room No:"
-    android:textSize="14sp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.408"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.101" />
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/cabin"
+                android:text="Fuel Details"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_ppp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_baseline_bulletblack"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Petrol - "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txt_petrolStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Not Available"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/ddd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:drawableLeft="@drawable/ic_baseline_bulletblack"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Diesel - "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txt_dieselStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Not Available"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
