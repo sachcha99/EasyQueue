@@ -17,10 +17,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="319dp"
+            android:id="@+id/txt_title"
+            android:layout_width="295dp"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
             android:foregroundGravity="center_vertical|center"
             android:text="Hey Madhura!"
             android:textAlignment="viewStart"
@@ -45,30 +46,424 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/user_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/btn_ShedLisst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ic_group_26810"
+            android:foreground="@drawable/ic_group_26810"
+            android:paddingTop="10dp"
+            app:cornerRadius="8dp"
+            app:iconPadding="0dp" />
+
+
+    </LinearLayout>
+
+
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_things"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Things  you can do" />
+        android:fontFamily="@font/cabin"
+        android:paddingStart="5dp"
+        android:paddingTop="25dp"
+        android:text="Things  you can do"
+        android:textSize="18sp"
+        android:visibility="visible" />
+
 
     <LinearLayout
+        android:id="@+id/allshedLayout"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:visibility="visible">
 
         <Button
             android:id="@+id/btn_ShedList"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_weight="1"
-            android:background="@drawable/ic_group_756"
-            android:foreground="@drawable/ic_group_756"
+            android:background="@drawable/ic_group_756_"
+            android:foreground="@drawable/ic_group_756_"
+            android:paddingTop="10dp"
             android:text="View Shed List"
             app:cornerRadius="8dp"
             app:iconPadding="0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/admin_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/sheddetails"
+        android:elevation="5dp"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:text="View Shed List"
+        android:visibility="gone"
+        app:cornerRadius="8dp"
+        app:iconPadding="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:foregroundGravity="center_vertical|clip_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_shedName"
+                    android:layout_width="195dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center|start"
+                    android:text="Pinidiya Shed"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_shedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left|center_vertical"
+                    android:text="Available "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_statusDotGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_baseline_bullet"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="3dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_statusDotRed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_baseline_bulletred"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="3dp"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_shedAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                    android:drawablePadding="4dp"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:text="Matara Hakmana RD."
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_twitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/cabin"
+                android:text="Fuel Details"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--                    Admin Edit Part-->
+                <LinearLayout
+                    android:id="@+id/layoutAdmnFuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape3"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_pppAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="Petrol - "
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/txt_petrolAdminStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="Not Available"
+                            android:textSize="14sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/txt_petrolAdminLiter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="(5000L)"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_titleQS1Admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Queue Start - " />
+
+                        <TextView
+                            android:id="@+id/txt_queueStartAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10.30 am" />
+
+
+                        <TextView
+                            android:id="@+id/txt_titleQE1Admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Queue End - "
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txt_queueEndAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17.30 am"
+                            android:visibility="visible" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_t1Admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Number Of Vehicle - " />
+
+                        <TextView
+                            android:id="@+id/txt_noVehicleAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="120" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:foregroundGravity="center_vertical|center_horizontal"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:id="@+id/dddAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="0dp"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="Diesel - "
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/txt_dieselStatusAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="Not Available"
+                            android:textSize="14sp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/txt_dieselLiterAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/cabin"
+                            android:gravity="center_vertical"
+                            android:text="(5000L)"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_titleQS2Admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Queue Start - " />
+
+                        <TextView
+                            android:id="@+id/txt_queueStartDesAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10.30 am" />
+
+
+                        <TextView
+                            android:id="@+id/txt_titleQE2Admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Queue End - "
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txt_queueEndDesAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17.30 am"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_t1DesAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Number Of Vehicle - " />
+
+                        <TextView
+                            android:id="@+id/txt_noVehicleDesAdmin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="120" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_adminEditShed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_aedit_btn"
+                            android:text="Update Details"
+                            android:textColor="#C3C1C1" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!--                    Admin E-->
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/admin_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_ShedLiss7t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/ic_undraw_uploading_go67_1"
+            android:foreground="@drawable/ic_undraw_uploading_go67_1"
+            android:paddingTop="10dp"
+            app:cornerRadius="8dp"
+            app:iconPadding="0dp" />
+
 
     </LinearLayout>
 

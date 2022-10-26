@@ -37,7 +37,7 @@
                     android:text="Pinidiya Shed" />
 
                 <TextView
-                    android:id="@+id/txt_open"
+                    android:id="@+id/txt_shedStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -253,4 +253,5 @@
 
         </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>

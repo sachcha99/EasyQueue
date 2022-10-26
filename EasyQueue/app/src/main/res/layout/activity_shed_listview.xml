@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal"
             android:layout_marginBottom="2dp"
+            android:clickable="false"
             android:foregroundGravity="clip_horizontal"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingBottom="2dp"
-            android:clickable="false">
+            android:paddingBottom="2dp">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+                android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -39,10 +39,11 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txtTitle"
                 android:layout_width="181dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:fontFamily="@font/cabin"
                 android:paddingStart="10dp"
                 android:text="Shed List"
                 android:textAlignment="gravity"
@@ -56,10 +57,9 @@
             android:layout_height="611dp"
             android:layout_marginBottom="10dp"
             android:clickable="true"
-            android:scrollingCache="false"
-            android:smoothScrollbar="true"
             android:descendantFocusability="blocksDescendants"
-            />
+            android:scrollingCache="false"
+            android:smoothScrollbar="true" />
 
         <Button
             android:id="@+id/button2"
@@ -67,7 +67,8 @@
             android:layout_height="49dp"
             android:background="@drawable/custom_shed_btn"
             android:text=" Add New Shed"
-            android:textColor="#DDDDDD" />
+            android:textColor="#DDDDDD"
+            android:visibility="gone" />
 
     </LinearLayout>
 

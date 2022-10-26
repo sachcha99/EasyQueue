@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +16,10 @@ import android.widget.ListView;
 
 import com.example.easyqueue.Home;
 import com.example.easyqueue.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class ShedListView extends AppCompatActivity {
 
     ListView ShedListView;
     List<Shed> ShedList;
+    FloatingActionButton BackBtn;
 
 
     @Override
@@ -31,35 +37,44 @@ public class ShedListView extends AppCompatActivity {
         setContentView(R.layout.activity_shed_listview);
 
         ShedList = new ArrayList<>();
+        BackBtn = (FloatingActionButton) findViewById(R.id.btn_back);
 
 
 
 
-        ShedList.add(new Shed(R.drawable.bg_image,111,"Pinidiya Shed","Hakmana Rd Matara","Open","11.55","2.30"));
-        ShedList.add(new Shed(R.drawable.bg_image,111,"name1","address","petrol","1","2"));
-        ShedList.add(new Shed(R.drawable.bg_image,111,"name1","address","diesel","1","2"));
-        ShedList.add(new Shed(R.drawable.bg_image,111,"name","address","status","1","2"));
-        ShedList.add(new Shed(R.drawable.bg_image,111,"name","address","status","1","2"));
+        ShedList.add(new Shed("111","Pinidiya Shed","Hakmana Rd Matara","Available","Available",200.0,"11.55AM","4.30PM",155,"Available",55.5,"07.00AM","2.30PM",115));
+        ShedList.add(new Shed("111","Harischandra Shed","Galle Rd Matara","NotAvailable","NotAvailable",100.0,"1.05PM","12.30AM",512,"NotAvailable",569,"20.55PM","15.55PM",415));
+        ShedList.add(new Shed("111","Gamini Shed","Akkuress Rd Matara","Available","Available",104.0,"10.35AM","2.30PM",215,"Available",1440.0,"10.40AM","2.30PM",715));
+        ShedList.add(new Shed("111","Udaya Shed","Colombo Rd Colombo","NotAvailable","Available",510.0,"8.15AM","2.30PM",145,"NotAvailable",170.0,"11.55","19.30PM",315));
+        ShedList.add(new Shed("111","Piliyandala Shed","Kandy Rd Kandy","Available","NotAvailable",1000.0,"9.50AM","3.30PM",151,"Available",310.0,"8.25AM","21.30PM",15));
+
 
         ShedListView = (ListView) findViewById(R.id.shed_listview);
 
 
 
 
-        ShedListAdapter adapter = new ShedListAdapter(this,R.layout.activity_shed_view_card,ShedList);
+        ShedListAdapter adapter = new ShedListAdapter(this,R.layout.activity_shed_card_view,ShedList);
         ShedListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Shed shedClick = ShedList.get(i);
-                System.out.println(shedClick.getAddress());
-                Intent intent = new Intent(ShedListView.this, EditShedDetails.class);
+                Shed shedClick =   ShedList.get(i);
+                Gson gson = new Gson();
+                String shedClickData = gson.toJson(shedClick);
+                Intent intent = new Intent(ShedListView.this, ShedDetailsView.class);
+                intent.putExtra("shedClick",shedClickData);
                 startActivity(intent);
-
             }
         });
         ShedListView.setAdapter(adapter);
 
 
+        BackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShedListView.this, Home.class));
+            }
+        });
 
 
     }

@@ -3,55 +3,36 @@ package com.example.easyqueue.ShedController;
 import com.google.gson.annotations.SerializedName;
 
 public class Shed {
-    @SerializedName("_id")
-    private int Id;
-    @SerializedName("Name")
-    private int Image;
-    @SerializedName("Name")
-    private String Name;
-    @SerializedName("Address")
-    private String Address;
-    @SerializedName("Status")
-    private String Status;
-    @SerializedName("QueueStartTime")
-    private String QueueStartTime;
-    @SerializedName("QueueEndTime")
-    private String QueueEndTime;
+    private String Id, Name, Address, Status, PetrolStatus, PetrolQueueStartTime, PetrolQueueEndTime;
+    private String DieselStatus, DieselQueueStartTime, DieselQueueEndTime;
+    private int DieselVehicleCount,PetrolVehicleCount;
+    private double PetrolLiter,DieselLiter;
 
     public Shed() {
     }
 
-    public Shed(int image,int id, String name, String address, String status, String queueStartTime, String queueEndTime) {
-        Image=image;
+    public Shed(String id, String name, String address, String status, String petrolStatus, double petrolLiter, String petrolQueueStartTime, String petrolQueueEndTime, int petrolVehicleCount, String dieselStatus,double dieselLiter, String dieselQueueStartTime, String dieselQueueEndTime, int dieselVehicleCount) {
         Id = id;
         Name = name;
         Address = address;
         Status = status;
-        QueueStartTime = queueStartTime;
-        QueueEndTime = queueEndTime;
+        PetrolStatus = petrolStatus;
+        PetrolLiter = petrolLiter;
+        PetrolQueueStartTime = petrolQueueStartTime;
+        PetrolQueueEndTime = petrolQueueEndTime;
+        DieselStatus = dieselStatus;
+        DieselLiter = dieselLiter;
+        DieselQueueStartTime = dieselQueueStartTime;
+        DieselQueueEndTime = dieselQueueEndTime;
+        DieselVehicleCount = dieselVehicleCount;
+        PetrolVehicleCount = petrolVehicleCount;
     }
 
-    public Shed(String name, String address, String status, String queueStartTime, String queueEndTime) {
-        Name = name;
-        Address = address;
-        Status = status;
-        QueueStartTime = queueStartTime;
-        QueueEndTime = queueEndTime;
-    }
-
-    public int getImage() {
-        return Image;
-    }
-
-    public void setImage(int image) {
-        Image = image;
-    }
-
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
 
@@ -79,19 +60,84 @@ public class Shed {
         Status = status;
     }
 
-    public String getQueueStartTime() {
-        return QueueStartTime;
+    public String getPetrolStatus() {
+        return PetrolStatus;
     }
 
-    public void setQueueStartTime(String queueStartTime) {
-        QueueStartTime = queueStartTime;
+    public void setPetrolStatus(String petrolStatus) {
+        PetrolStatus = petrolStatus;
     }
 
-    public String getQueueEndTime() {
-        return QueueEndTime;
+    public double getPetrolLiter() {
+        return PetrolLiter;
     }
 
-    public void setQueueEndTime(String queueEndTime) {
-        QueueEndTime = queueEndTime;
+    public void setPetrolLiter(float petrolLiter) {
+        PetrolLiter = petrolLiter;
+    }
+
+    public String getPetrolQueueStartTime() {
+        return PetrolQueueStartTime;
+    }
+
+    public void setPetrolQueueStartTime(String petrolQueueStartTime) {
+        PetrolQueueStartTime = petrolQueueStartTime;
+    }
+
+    public String getPetrolQueueEndTime() {
+        return PetrolQueueEndTime;
+    }
+
+    public void setPetrolQueueEndTime(String petrolQueueEndTime) {
+        PetrolQueueEndTime = petrolQueueEndTime;
+    }
+
+    public String getDieselStatus() {
+        return DieselStatus;
+    }
+
+    public void setDieselStatus(String dieselStatus) {
+        DieselStatus = dieselStatus;
+    }
+
+    public double getDieselLiter() {
+        return DieselLiter;
+    }
+
+    public void setDieselLiter(float dieselLiter) {
+        DieselLiter = dieselLiter;
+    }
+
+    public String getDieselQueueStartTime() {
+        return DieselQueueStartTime;
+    }
+
+    public void setDieselQueueStartTime(String dieselQueueStartTime) {
+        DieselQueueStartTime = dieselQueueStartTime;
+    }
+
+    public String getDieselQueueEndTime() {
+        return DieselQueueEndTime;
+    }
+
+    public void setDieselQueueEndTime(String dieselQueueEndTime) {
+        DieselQueueEndTime = dieselQueueEndTime;
+    }
+
+    public int getDieselVehicleCount() {
+        return DieselVehicleCount;
+    }
+
+    public void setDieselVehicleCount(int dieselVehicleCount) {
+        DieselVehicleCount = dieselVehicleCount;
+    }
+
+    public int getPetrolVehicleCount() {
+        return PetrolVehicleCount;
+    }
+
+    public void setPetrolVehicleCount(int petrolVehicleCount) {
+        PetrolVehicleCount = petrolVehicleCount;
     }
 }
+

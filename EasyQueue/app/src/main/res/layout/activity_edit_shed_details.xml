@@ -6,109 +6,254 @@
     android:layout_height="match_parent"
     tools:context=".ShedController.ShedListView">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foregroundGravity="top"
-        android:gravity="start"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:layout_height="match_parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginBottom="2dp"
-            android:foregroundGravity="clip_horizontal"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingBottom="2dp">
+            android:layout_height="match_parent"
+            android:foregroundGravity="top"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="false"
+                android:foregroundGravity="clip_horizontal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="2dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                    app:backgroundTint="#ffffff"
+                    app:borderWidth="0dp"
+                    app:elevation="1dp"
+                    app:hoveredFocusedTranslationZ="0dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/txtTitle1"
+                    android:layout_width="286dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/cabin"
+                    android:paddingStart="10dp"
+                    android:text="Update Shed Details"
+                    android:textAlignment="gravity"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_img"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24"
-                app:backgroundTint="#ffffff"
-                app:borderWidth="0dp"
-                app:elevation="1dp"
-                app:hoveredFocusedTranslationZ="0dp"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:layout_gravity="center"
+                android:layout_marginVertical="15dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btn_ShedLisst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/ic_group_26795"
+                    android:foreground="@drawable/ic_group_26795"
+                    android:paddingTop="10dp"
+                    app:cornerRadius="8dp"
+                    app:iconPadding="0dp" />
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/inp_ShedName"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="shed name"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+            <EditText
+                android:id="@+id/inp_ShedAddress"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="address"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                style="@android:style/Widget.Holo.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="281dp"
+                android:id="@+id/textViesw"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingStart="10dp"
-                android:text="Update Shed Details"
-                android:textAlignment="gravity"
-                android:textSize="22sp"
-                android:textStyle="bold" />
+                android:layout_margin="10dp"
+                android:fontFamily="@font/cabin"
+                android:text="Petrol Queue Details"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                style="@android:style/Widget.Holo.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
+
+            <EditText
+                android:id="@+id/inp_petrolliter"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="petrol capacity"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+            <EditText
+                android:id="@+id/inp_petrolQS"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="petrol queue start time"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+            <EditText
+                android:id="@+id/inp_petrolQE"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="petrol queue end time"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+            <EditText
+                android:id="@+id/inp_petrolCount"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="petrol queue length"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/cabin"
+                android:text="Diesel Queue Details"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                style="@android:style/Widget.Holo.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
+
+            <EditText
+                android:id="@+id/inp_petrolliter"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="diesel capacity"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+            <EditText
+                android:id="@+id/inp_petrolQS"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="diesel queue start time"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+            <EditText
+                android:id="@+id/inp_petrolQE"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="diesel queue endd time"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+            <EditText
+                android:id="@+id/inp_petrolCount"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/edittext"
+                android:ems="10"
+                android:hint="diesel queue length"
+                android:inputType="textPersonName"
+                android:padding="15dip" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginVertical="25dp">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_cancel_btn"
+                    android:padding="15dp"
+                    android:text="Cancel"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/custom_confirm_btn"
+                    android:text="Update"
+                    android:textColor="#CFCECE" />
+            </LinearLayout>
+
         </LinearLayout>
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:foregroundGravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_cancel_btn"
-                android:padding="15dp"
-                android:text="Cancel"
-                android:textColor="#DDDDDD" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/custom_shed_btn"
-                android:text="Save"
-                android:textColor="#DDDDDD" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/editTextTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="time" />
-
-    </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>
