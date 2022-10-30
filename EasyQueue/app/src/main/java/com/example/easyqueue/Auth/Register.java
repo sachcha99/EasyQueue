@@ -41,10 +41,10 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
             Name= findViewById(R.id.inp_name);
-            Email= findViewById(R.id.inp_name);
-            MobileNo= findViewById(R.id.inp_name);
-            Address= findViewById(R.id.inp_name);
-            Password= findViewById(R.id.inp_name);
+            Email= findViewById(R.id.inp_email);
+            MobileNo= findViewById(R.id.inp_mobileNo);
+            Address= findViewById(R.id.inp_Adress);
+            Password= findViewById(R.id.inp_password);
 
             LBTxt = findViewById(R.id.txt_lb);
 
@@ -134,9 +134,9 @@ public class Register extends AppCompatActivity {
         mobileNo = MobileNo.getText().toString();
         address = Address.getText().toString();
         password = Password.getText().toString();
-        role = "Owner";
-        fuelType="";
-        shedId="";
+        role = RoleSpinner.getSelectedItem().toString();
+        fuelType="-";
+        shedId="-";
 
         if(TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             EditTextEmptyHolder = false ;

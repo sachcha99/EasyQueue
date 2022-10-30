@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -57,10 +58,11 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        SharedPreferences  mPrefs = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSharedPref",MODE_PRIVATE);
+
 
         Gson gsons = new Gson();
-        String jsong = mPrefs.getString("Token", "");
+        String jsong = sharedPreferences.getString("Token", "");
         User obj = gsons.fromJson(jsong, User.class);
 
 
@@ -86,7 +88,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
             user =obj;
         }else{
             user =  loadData();
-            SharedPreferences.Editor prefsEditor = mPrefs.edit();
+            SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
             Gson gson = new Gson();
             String json = gson.toJson(user);
             prefsEditor.putString("Token", json);
@@ -126,20 +128,23 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
     }
 
     private void GoToUpdate() {
-        startActivity(new Intent(Home.this, EditShedDetails.class));
+        Intent intent= new Intent(Home.this, EditShedDetails.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void GoToShedList() {
-
-        startActivity(new Intent(Home.this, ShedListView.class));
+        Intent intent= new Intent(Home.this, ShedListView.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
 //        getdata();
 
 
     }
 
     private void Logout() {
-        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
-        mPrefs.edit().remove("Token").commit();
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSharedPref",MODE_PRIVATE);
+        sharedPreferences.edit().remove("Token").commit();
         startActivity(new Intent(Home.this, Login.class));
     }
 
