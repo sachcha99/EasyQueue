@@ -2,6 +2,7 @@ package com.example.easyqueue;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,16 +24,19 @@ public class MainActivity extends AppCompatActivity {
         catch (NullPointerException e){}
 
         setContentView(R.layout.activity_main);
-        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
-        Gson gsons = new Gson();
-        String jsong = mPrefs.getString("Token", "");
-        User obj = gsons.fromJson(jsong, User.class);
-        System.out.println(obj+"dddddddddddddddddddddddddddddddd");
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSharedPref",MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("Token", "");
+        User obj = gson.fromJson(json, User.class);
+
+
         if(obj!= null){
             Intent intent = new Intent(this, Home.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }else{
             Intent intent = new Intent(this, Login.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
 

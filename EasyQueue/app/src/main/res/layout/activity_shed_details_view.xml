@@ -146,6 +146,13 @@
                         android:textSize="16sp" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:foregroundGravity="center_vertical|clip_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
                 <TextView
                     android:id="@+id/txt_title"
                     android:layout_width="wrap_content"
@@ -154,8 +161,32 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/cabin"
                     android:text="Fuel Details"
+                    android:layout_weight="1"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/txt_updateeeAT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/cabin"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Last update - "
+                        android:textSize="14sp"
+                        android:textStyle="italic" />
+                    <TextView
+                        android:id="@+id/txt_updateAT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/cabin"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="10.50AM"
+                        android:textSize="13sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
 
 
                 <LinearLayout
@@ -217,6 +248,42 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/txt_titleQS112"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Arrived - " />
+
+                            <TextView
+                                android:id="@+id/txt_arrivedPetTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10.30 am" />
+
+
+                            <TextView
+                                android:id="@+id/txt_titleQ2E222"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Finished - "
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/txt_finishedPetTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17.30 am"
+                                android:visibility="visible" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:id="@+id/txt_titleQS1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -233,15 +300,16 @@
                                 android:id="@+id/txt_titleQE1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
                                 android:text="Queue End - "
-                                android:visibility="gone" />
+                                android:visibility="visible" />
 
                             <TextView
                                 android:id="@+id/txt_queueEnd"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="17.30 am"
-                                android:visibility="gone" />
+                                android:visibility="visible" />
 
 
                         </LinearLayout>
@@ -351,6 +419,42 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/txt_titleQS12"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Arrived - " />
+
+                            <TextView
+                                android:id="@+id/txt_arrivedDesTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10.30 am" />
+
+
+                            <TextView
+                                android:id="@+id/txt_titleQ2E2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Finished - "
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/txt_finishedDesTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17.30 am"
+                                android:visibility="visible" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <TextView
                                 android:id="@+id/txt_titleQS2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -367,15 +471,16 @@
                                 android:id="@+id/txt_titleQE2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
                                 android:text="Queue End - "
-                                android:visibility="gone" />
+                                android:visibility="visible" />
 
                             <TextView
                                 android:id="@+id/txt_queueEndDes"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="17.30 am"
-                                android:visibility="gone" />
+                                android:visibility="visible" />
 
                         </LinearLayout>
 
