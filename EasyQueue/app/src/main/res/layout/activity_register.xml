@@ -141,7 +141,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/inp_Adress"
+            android:id="@+id/inp_Address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -178,13 +178,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/textVieddw3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/cabin"
                 android:text="Shed Details"
@@ -235,6 +236,104 @@
                 android:hint="shed address"
                 android:textAlignment="viewStart"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/texet2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Shed Status"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
+
+
+            <TextView
+                android:id="@+id/texet3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Petrol Availability Status"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:id="@+id/texet4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Petrol Capacity"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/inp_petrolLiter"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="petrol capacity"
+                android:inputType="number"
+                android:padding="15dip" />
+
+
+            <TextView
+                android:id="@+id/texet5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Diesel Availability Status"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"/>
+
+
+            <TextView
+                android:id="@+id/texet31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/cabin"
+                android:text="Diesel Capacity"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/inp_dieselLiter"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="10dp"
+                android:ems="10"
+                android:hint="diesel capacity"
+                android:inputType="number"
+                android:padding="15dip" />
+
+
 
         </LinearLayout>
 

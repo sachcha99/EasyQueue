@@ -57,7 +57,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
     User userObj;
     DBHelper DB;
     SQLiteDatabase sqLiteDatabaseObj;
-    String url = "http://172.28.7.197:5000/shedDetails/update/";
+    String url = "https://easy-queue-application.herokuapp.com/shedDetails/update/";
     RequestQueue allSheds;
     String QueueType;
     SharedPreferences sharedPreferences;
@@ -135,7 +135,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
         if(userObj.getShedId().equals("-")) {
             ExitDiesel.setVisibility(View.GONE);
             ExitPetrol.setVisibility(View.GONE);
-            if (shedObj.getStatus().equals("NotAvailable")) {
+            if (shedObj.getStatus().equals("Not Available")) {
                 DotGreen.setVisibility(View.GONE);
                 DotRed.setVisibility(View.VISIBLE);
                 JoinPetrol.setVisibility(View.GONE);
@@ -169,6 +169,11 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
                 ExitDiesel.setVisibility(View.GONE);
                 ExitPetrol.setVisibility(View.GONE);
             }
+        }else{
+            ExitDiesel.setVisibility(View.GONE);
+            ExitPetrol.setVisibility(View.GONE);
+            JoinDiesel.setVisibility(View.GONE);
+            JoinPetrol.setVisibility(View.GONE);
         }
 //            if (shedObj.getStatus().equals("NotAvailable")) {
 //                DotGreen.setVisibility(View.GONE);
@@ -339,7 +344,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
                         prefsEditor.putString("Token", json);
                         prefsEditor.commit();
                         Toast.makeText(ShedDetailsView.this, "Update SuccessFully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ShedDetailsView.this, ShedListView.class);
+                        Intent intent = new Intent(ShedDetailsView.this, Home.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }else{
@@ -357,7 +362,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
                         prefsEditor.putString("Token", json);
                         prefsEditor.commit();
                         Toast.makeText(ShedDetailsView.this, "Update SuccessFully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ShedDetailsView.this, ShedListView.class);
+                        Intent intent = new Intent(ShedDetailsView.this, Home.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }else{
@@ -540,7 +545,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
      * @param*/
     private void UpdateSheds(Shed shedObj, Double capacity, String type)
     {
-        url = "http://172.28.7.197:5000/shedDetails/update/"+shedObj.getId();
+        url = "https://easy-queue-application.herokuapp.com/shedDetails/update/"+shedObj.getId();
         DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
         String time = dateFormat.format(new Date()).toString();
         if(type.equals("Petrol")){
@@ -629,7 +634,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
      * @param*/
     private void UpdateJoinQueue(Shed shedObj,String type)
     {
-        url = "http://192.168.1.105:5000/shedDetails/update/"+shedObj.getId();
+        url = "https://easy-queue-application.herokuapp.com/shedDetails/update/"+shedObj.getId();
         DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
         String time = dateFormat.format(new Date()).toString();
         if(type.equals("Petrol")){

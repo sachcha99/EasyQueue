@@ -37,7 +37,7 @@ public class ShedListView extends AppCompatActivity {
     ListView ShedListView;
     List<Shed> ShedList;
     FloatingActionButton BackBtn;
-    final String url = "http://172.28.7.197:5000/shedDetails/";
+    final String url = "https://easy-queue-application.herokuapp.com/shedDetails/";
     RequestQueue allSheds;
 
 
@@ -76,7 +76,9 @@ public class ShedListView extends AppCompatActivity {
         BackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ShedListView.this, Home.class));
+                Intent intent = new Intent(ShedListView.this, Home.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
