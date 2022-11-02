@@ -4,5 +4,13 @@
             <item>User</item>
             <item>Owner</item>
         </string-array>
+    <string-array name="type">
+        <item>Available</item>
+        <item>Not Available</item>
+    </string-array>
+    <string-array name="ShedType">
+        <item>Open</item>
+        <item>Closed</item>
+    </string-array>
 
 </resources>

@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,18 +19,32 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.easyqueue.DBHelper.DBHelper;
+import com.example.easyqueue.Home;
 import com.example.easyqueue.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Register extends AppCompatActivity {
-    private EditText Name,Email,MobileNo,Address,Password,ShedName,ShedAddress;
-    private Spinner RoleSpinner;
+    private EditText Name,Email,MobileNo,Address,Password,ShedName,ShedAddress,petrolCapacity,dieselCapacity;
+    private Spinner RoleSpinner,typeSpinnerShed,typeSpinnerPetrol,typeSpinnerDiesel;
     private Button Register;
     private TextView goLogin,LBTxt;
     private LinearLayout ShedDetails;
-    String roleType,name,email,mobileNo,address,role,password,shedId,fuelType;
+    String roleType,name,email,mobileNo,address,role,password,shedId,fuelType,shedName,shedAddress,shedStatus,petrolStatus,dieselStatus,petrolCapa,dieselCapa;
     SQLiteDatabase sqLiteDatabaseObj;
     DBHelper DB;
+    RequestQueue queue;
     String SQLiteDataBaseQueryHolder ;
     Boolean EditTextEmptyHolder;
     String F_Result = "Not_Found";
@@ -40,11 +55,14 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+            queue = Volley.newRequestQueue(this);
             Name= findViewById(R.id.inp_name);
             Email= findViewById(R.id.inp_email);
             MobileNo= findViewById(R.id.inp_mobileNo);
-            Address= findViewById(R.id.inp_Adress);
+            Address= findViewById(R.id.inp_Address);
             Password= findViewById(R.id.inp_password);
+            petrolCapacity= findViewById(R.id.inp_petrolLiter);
+            dieselCapacity= findViewById(R.id.inp_dieselLiter);
 
             LBTxt = findViewById(R.id.txt_lb);
 
@@ -55,6 +73,9 @@ public class Register extends AppCompatActivity {
 
             goLogin= findViewById(R.id.btn_gotoLogin);
             RoleSpinner = findViewById(R.id.spinner);
+            typeSpinnerShed = findViewById(R.id.spinner2);
+            typeSpinnerPetrol = findViewById(R.id.spinner4);
+            typeSpinnerDiesel = findViewById(R.id.spinner3);
             Register = findViewById(R.id.btn_register);
 
 
@@ -62,6 +83,18 @@ public class Register extends AppCompatActivity {
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.role, android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             RoleSpinner.setAdapter(adapter);
+
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.ShedType, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            typeSpinnerShed.setAdapter(adapter2);
+
+            ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
+            adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            typeSpinnerPetrol.setAdapter(adapter3);
+
+            ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
+            adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            typeSpinnerDiesel.setAdapter(adapter4);
 
             RoleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -98,17 +131,26 @@ public class Register extends AppCompatActivity {
                 System.out.println("SQLiteDBBuild");
                 SQLiteDBBuild();
                 // Creating SQLite table if dose n't exists.
+                System.out.println("SQLiteDBTableBuild");
                 SQLiteDBTableBuild();
                 // Checking EditText is empty or Not.
+                System.out.println("CheckEditTextStatus");
                 CheckEditTextStatus();
                 // Method to check Email is already exists or not.
+                System.out.println("CheckingEmailExists");
                 CheckingEmailExists();
                 // Empty EditText After done inserting process.
+
+                if(roleType.equals("Owner")){
+                    CheckingShedDetials();
+                }
 
             }
         });
 
     }
+
+
 
 
     public void SQLiteDBBuild(){
@@ -173,7 +215,12 @@ public class Register extends AppCompatActivity {
         }
         else {
             // If email already dose n't exists then user registration details will entered to SQLite database.
-            SubmitUser();
+            if(roleType.equals("Owner")){
+                submitShed();
+            }else{
+                SubmitUser("-");
+            }
+
         }
         F_Result = "Not_Found" ;
 
@@ -186,6 +233,25 @@ public class Register extends AppCompatActivity {
         Password.getText().clear();
         ShedName.getText().clear();
         ShedAddress.getText().clear();
+        petrolCapacity.getText().clear();
+        dieselCapacity.getText().clear();
+    }
+
+    private void CheckingShedDetials() {
+        System.out.println("CCCCCCCCCCCCCc");
+        shedName =ShedName.getText().toString();
+        shedAddress= ShedAddress.getText().toString();
+        shedStatus = typeSpinnerShed.getSelectedItem().toString();
+        petrolStatus= typeSpinnerPetrol.getSelectedItem().toString();
+        dieselStatus= typeSpinnerDiesel.getSelectedItem().toString();
+        petrolCapa= petrolCapacity.getText().toString();
+        dieselCapa= dieselCapacity.getText().toString();
+        if(TextUtils.isEmpty(shedName) || TextUtils.isEmpty(shedAddress) || TextUtils.isEmpty(petrolCapa) || TextUtils.isEmpty(dieselCapa)){
+            EditTextEmptyHolder = false ;
+        }
+        else {
+            EditTextEmptyHolder = true ;
+        }
     }
 
 
@@ -196,8 +262,8 @@ public class Register extends AppCompatActivity {
 
 
 
-
-    private void SubmitUser() {
+    private void SubmitUser(String id) {
+        shedId =id;
         // If editText is not empty then this block will executed.
         if(EditTextEmptyHolder == true)
         {
@@ -209,6 +275,9 @@ public class Register extends AppCompatActivity {
             sqLiteDatabaseObj.close();
             // Printing toast message after done inserting.
             Toast.makeText(Register.this,"User Registered Successfully", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Register.this, Login.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
             ClearEditText();
         }
         // This block will execute if any of the registration EditText is empty.
@@ -216,6 +285,63 @@ public class Register extends AppCompatActivity {
             // Printing toast message if any of EditText is empty.
             Toast.makeText(Register.this,"Please Fill All The Required Fields.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void submitShed() {
+        String url = "https://easy-queue-application.herokuapp.com/shedDetails/create/";
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject shedObject = new JSONObject(response);
+                            System.out.println( shedObject.getJSONObject("data").getString("_id"));
+                            SubmitUser(shedObject.getJSONObject("data").getString("_id"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        // response on Success
+                        Log.d("Response", response);
+
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", String.valueOf(error));
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("shedName", shedName);
+                params.put("address", shedAddress);
+                params.put("ownerID", email);
+                params.put("petrolArrivalTime", "-");
+                params.put("petrolFinishTime", "-");
+                params.put("dieselArrivalTime", "-");
+                params.put("dieselFinishTime", "-");
+                params.put("petrolQueueStartTime", "-");
+                params.put("petrolQueueEndTime", "-");
+                params.put("petrolQueueLength", "0");
+                params.put("dieselQueueStartTime", "-");
+                params.put("dieselQueueEndTime", "-");
+                params.put("dieselQueueLength", "0");
+                params.put("petrolStatus", petrolStatus);
+                params.put("dieselStatus", dieselStatus);
+                params.put("shedStatus", shedStatus);
+                params.put("petrolCapacity", petrolCapa);
+                params.put("dieselCapacity", dieselCapa);
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
     }
 
 }

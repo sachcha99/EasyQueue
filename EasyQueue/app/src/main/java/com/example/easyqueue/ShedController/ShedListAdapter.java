@@ -89,7 +89,7 @@ public class ShedListAdapter extends ArrayAdapter<Shed> {
         petrolStatus.setText(shedObj.getPetrolStatus());
         dieselStatus.setText(shedObj.getDieselStatus());
 
-        if(shedObj.getStatus().equals("NotAvailable")){
+        if(shedObj.getStatus().equals("Closed")){
             greenDot.setVisibility(View.GONE);
             redDot.setVisibility(View.VISIBLE);
         }
