@@ -75,8 +75,9 @@
             android:id="@+id/inp_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="password"
             android:layout_marginStart="5dp"
+            android:hint="password"
+            android:inputType="textWebPassword"
             android:textSize="20sp" />
 
         <Button

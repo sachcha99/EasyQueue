@@ -135,7 +135,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
         if(userObj.getShedId().equals("-")) {
             ExitDiesel.setVisibility(View.GONE);
             ExitPetrol.setVisibility(View.GONE);
-            if (shedObj.getStatus().equals("Not Available")) {
+            if (shedObj.getStatus().equals("Closed")) {
                 DotGreen.setVisibility(View.GONE);
                 DotRed.setVisibility(View.VISIBLE);
                 JoinPetrol.setVisibility(View.GONE);
@@ -552,7 +552,7 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
             shedObj.setPetrolLiter(shedObj.getPetrolLiter() - capacity);
             shedObj.setPetrolVehicleCount(shedObj.getPetrolVehicleCount()-1);
             if(shedObj.getPetrolLiter()==0){
-                shedObj.setPetrolStatus("NotAvailable");
+                shedObj.setPetrolStatus("Not Available");
                 shedObj.setPetrolFinishedTime(time);
             }
             if(shedObj.getPetrolVehicleCount()==0){
@@ -562,15 +562,15 @@ public class ShedDetailsView extends AppCompatActivity implements  View.OnClickL
             shedObj.setDieselLiter(shedObj.getDieselLiter() - capacity);
             shedObj.setDieselVehicleCount(shedObj.getDieselVehicleCount()-1);
             if(shedObj.getDieselLiter()==0){
-                shedObj.setDieselStatus("NotAvailable");
+                shedObj.setDieselStatus("Not Available");
                 shedObj.setDieselFinishedTime(time);
             }
             if(shedObj.getDieselVehicleCount()==0){
                 shedObj.setDieselQueueEndTime(time);
             }
         }
-        if(shedObj.getPetrolStatus().equals("NotAvailable") && shedObj.getDieselStatus().equals("NotAvailable")){
-            shedObj.setStatus("NotAvailable");
+        if(shedObj.getPetrolStatus().equals("Not Available") && shedObj.getDieselStatus().equals("Not Available")){
+            shedObj.setStatus("Closed");
         }
         StringRequest putRequest = new StringRequest(Request.Method.PUT, url,
                 new Response.Listener<String>()

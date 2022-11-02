@@ -220,7 +220,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
             getUserShed();
         }
         System.out.println(user.getRole());
-        TitleTxt.setText("Hey "+user.getName());
+        Title.setText("Hey "+user.getName().split(" ")[0]+"!");
 
 
     }
@@ -244,7 +244,9 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
     private void Logout() {
         SharedPreferences sharedPreferences = getSharedPreferences("UserSharedPref",MODE_PRIVATE);
         sharedPreferences.edit().remove("Token").commit();
-        startActivity(new Intent(Home.this, Login.class));
+        Intent intent = new Intent(Home.this, Login.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
 
@@ -350,7 +352,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
                     PetrolLayout.setVisibility(View.GONE);
                     ExitDiesel.setVisibility(View.VISIBLE);
                 }
-                if (list.get(0).getStatus().equals("NotAvailable")) {
+                if (list.get(0).getStatus().equals("Closed")) {
                     DotGreen.setVisibility(View.GONE);
                     DotRed.setVisibility(View.VISIBLE);
                 }
@@ -381,7 +383,6 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
         }else{
             desc.setText("Are You Want To Exit Diesel Queue ?");
         }
-        // dialogBuilder.setTitle(bookingId);
         final AlertDialog b = dialogBuilder.create();
         b.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         b.show();
@@ -523,7 +524,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
             }
         }
         if(shedObj.getPetrolStatus().equals("Not Available") && shedObj.getDieselStatus().equals("Not Available")){
-            shedObj.setStatus("Not Available");
+            shedObj.setStatus("Closed");
         }
         StringRequest putRequest = new StringRequest(Request.Method.PUT, url,
                 new Response.Listener<String>()
@@ -664,7 +665,7 @@ public class Home extends AppCompatActivity implements  View.OnClickListener {
         AdminPetFinished.setText(list.get(0).getPetrolFinishedTime());
         AdminDesFinished.setText(list.get(0).getDieselFinishedTime());
 
-        if (list.get(0).getStatus().equals("Not Available")) {
+        if (list.get(0).getStatus().equals("Closed")) {
             DotGreenAdmin.setVisibility(View.GONE);
             DotRedAdmin.setVisibility(View.VISIBLE);
         }

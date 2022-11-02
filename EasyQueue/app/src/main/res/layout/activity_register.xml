@@ -170,6 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:hint="password"
+            android:inputType="textWebPassword"
             android:textSize="20sp" />
 
 

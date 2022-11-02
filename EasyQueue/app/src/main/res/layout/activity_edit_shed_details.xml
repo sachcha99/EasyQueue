@@ -367,7 +367,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/edittext"
                 android:ems="10"
-                android:hint="petrol arrived time"
+                android:hint="diesel arrived time"
                 android:inputType="time"
                 android:padding="15dip" />
 

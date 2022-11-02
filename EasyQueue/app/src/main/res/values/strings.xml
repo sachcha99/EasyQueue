@@ -8,5 +8,9 @@
         <item>Available</item>
         <item>Not Available</item>
     </string-array>
+    <string-array name="ShedType">
+        <item>Open</item>
+        <item>Closed</item>
+    </string-array>
 
 </resources>

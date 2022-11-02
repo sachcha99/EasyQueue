@@ -58,7 +58,7 @@ public class EditShedDetails extends AppCompatActivity {
         ShedAddress = findViewById(R.id.inp_ShedAddress);
         petrolArrived= findViewById(R.id.inp_petrolArrived);
         petrolFinished= findViewById(R.id.inp_petrolFinish);
-        dieselArrived = findViewById(R.id.inp_petrolArrived);
+        dieselArrived = findViewById(R.id.inp_dieselArrived);
         dieselFinished = findViewById(R.id.inp_dieselFinish);
 
         typeSpinnerShed = findViewById(R.id.spinner2);
@@ -69,7 +69,7 @@ public class EditShedDetails extends AppCompatActivity {
 
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.ShedType, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         typeSpinnerShed.setAdapter(adapter);
 
@@ -97,7 +97,7 @@ public class EditShedDetails extends AppCompatActivity {
         petrolFinished.setText(shedObj.getPetrolFinishedTime());
         dieselArrived.setText(shedObj.getDieselArrivedime());
         dieselFinished.setText(shedObj.getDieselFinishedTime());
-        if(shedObj.getStatus().equals("Available")){
+        if(shedObj.getStatus().equals("Open")){
             typeSpinnerShed.setSelection(0);
         }else{
             typeSpinnerShed.setSelection(1);
